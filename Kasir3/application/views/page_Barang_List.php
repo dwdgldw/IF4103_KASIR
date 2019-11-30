@@ -26,9 +26,9 @@
       <div class="bawah"><br>
           <div class="menu">
             <ul>
-              <li class="satu">
+              <!-- <li class="satu">
                 <a href="<?= base_url(); ?>Kasir/TambahBarang" class="btn btn-md btn-success">Tambah Barang</a><br><br>
-              </li>
+              </li> -->
               <li class="dua">
                   <form method="post">
                     <label class="control-label col-md-3"></label>
@@ -100,7 +100,6 @@
                           <th class="text-center" >Jenis Barang</th>
                           <th class="text-center" >Merk</th>
                           <th class="text-center" >Stok Barang</th>
-                          <th class="text-center" >Options</th>
 
                       </tr>
                   </thead>
@@ -112,11 +111,11 @@
                           <td class="text-center"><?= $barang['JenisBarang']; ?></td>
                           <td class="text-center"><?= $barang['Merk']; ?></td>
                           <td class="text-center"><?= $barang['stok_barang']; ?></td>
-
+<!-- 
                           <td class="text-center">
                               <a href="<?= base_url(); ?>Kasir/editBarang/<?= $barang['id'] ?>" class="btn btn-sm btn-success" ?>Edit</a>
                               <a href="<?= base_url(); ?>Kasir/deleteBarang/<?= $barang['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');" ?>Delete</a>
-                          </td>
+                          </td> -->
                       </tr>
                       <?php endforeach ?>
                   </tbody>
