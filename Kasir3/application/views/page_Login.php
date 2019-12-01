@@ -138,11 +138,6 @@
                     <i class="fa fa-sign-in" ></i> Login</button>
               </div>
             </div>
-<!--             <div class="form-group bot">
-              <div class="col-md-9" >
-                    <p align="center">Don't have an account yet?<a href="<?= base_url(); ?>Akun/Regristrasi"> Create an account</a></p>
-              </div>
-            </div> -->
           </li>
         </ul>
       </form>

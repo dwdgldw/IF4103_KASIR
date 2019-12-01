@@ -8,9 +8,8 @@ Class Akun extends CI_Controller{
         $this->load->library('form_validation');
         $this->load->helper(array('form','url'));
     }
-
+    
     public function Login(){
-
         $data['barang_db'] = $this->M_kasir->get_all_Barang();
         $this->load->view('page_Header');
         $this->load->view('page_Home',$data);   
@@ -19,9 +18,6 @@ Class Akun extends CI_Controller{
         $this->load->view('page_Login');
     }
 
-    public function Regristrasi(){
-        $this->load->view('page_Regristrasi'); 
-    }
     public function LoginAdmin(){
         $this->load->view('page_Header');
         $this->load->view('Admin/page_Login_Admin');   
@@ -75,25 +71,4 @@ Class Akun extends CI_Controller{
         $this->session->sess_destroy();
         redirect('Akun/awal');
     }
-
-
-
-    public function TambahEmployee(){
-
-        $this->form_validation->set_rules('Nama_depan','Nama_depan', 'required');
-        $this->form_validation->set_rules('Nama_belakang','Nama_belakang', 'required');
-        $this->form_validation->set_rules('Username', 'Username', 'required');
-        $this->form_validation->set_rules('Password', 'Password', 'required');
-        $this->form_validation->set_rules('Tanggal_lahir', 'Tanggal_lahir', 'required');
-        $this->form_validation->set_rules('Email', 'Email', 'required');
-        
-        if ($this->form_validation->run()==FALSE){
-            $this->load->view('page_Regristrasi');
-        }else{
-            $this->M_akun->addEmployee();
-            $this->session->set_flashdata('success','Silahkan Login');
-            $this->load->view('page_Regristrasi');
-        }
-     }
-
 }

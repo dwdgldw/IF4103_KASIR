@@ -98,25 +98,25 @@
           <div class="col-md-8">
             <div class="atas">
                 <div class="form-group">
-                  <label class="control-label col-md-3" >Id Barang :</label>
+                  <label class="control-label col-md-4" >Id Barang :</label>
                   <div class="col-md-8">
                     <input name="id" id="id" type="text" class="form-control reset" placeholder="Masukan id barang" required="" >
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-3"><br>Jumlah Barang</label>
+                  <label class="control-label col-md-4"><br>Jumlah Barang</label>
                   <div class="col-md-8"><br>
                     <input name="jml_barang"  id="jml_barang" type="text" class="form-control reset" required="" placeholder="Masukan jumlah barang">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-3"><br>Tanggal Barang</label>
+                  <label class="control-label col-md-4"><br>Tanggal Pembelian</label>
                   <div class="col-md-8"><br>
                     <input name="tgl_transaksi"  id="tgl_transaksi" type="date" class="form-control reset" required="" >
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-md-offset-3 col-md-3"><br>
+                  <div class="col-md-offset-1 col-md-3"><br>
                       <button type="button submit" name="submit" class="btn btn-primary btn-md" >
                         <i class="fa fa-cart-plus"></i > Tambah</button>
                   </div>

@@ -8,10 +8,37 @@ Class M_kasir extends CI_Model{
       return $data->result_array();
     }
 
-    public function get_Option(){ 
-        $this->db->select('id,NamaBarang');
-        return $this->db->get('barang_db')->result();
+    public function addMBarang(){
+        $data = [
+            'id' => $this->input->post('id',true),
+            'NamaBarang' => $this->input->post('NamaBarang',true),
+            'Harga' => $this->input->post('Harga',true),
+            'JenisBarang' => $this->input->post('JenisBarang',true),
+            'Merk' => $this->input->post('Merk',true),
+            'stok_barang' => $this->input->post('stok_barang',true),
+        ];
+        $this->db->insert('barang_db',$data);
     }
+
+     public function deleteBarang($id) {
+		$this->db->where('id',$id);
+		return $this->db->delete('barang_db');
+    }
+
+    public function editMBarang($id){
+		$data = [
+            'id' => $this->input->post('id',true),
+            'NamaBarang' => $this->input->post('NamaBarang',true),
+            'Harga' => $this->input->post('Harga',true),
+            'JenisBarang' => $this->input->post('JenisBarang',true),
+            'Merk' => $this->input->post('Merk',true),
+            'stok_barang' => $this->input->post('stok_barang',true),
+
+        ];
+		$this->db->where('id',$id);
+		return $this->db->update('barang_db',$data);
+    }
+
     public function getBarangById($id){
 		$this->db->where('id',$id);
 		return $this->db->get('barang_db')->row_array();
@@ -45,37 +72,5 @@ Class M_kasir extends CI_Model{
         $data = $this->db->query("SELECT * FROM `penjualan_db` join barang_db using(id)");
         return $data->result_array();
     }
-    
-  //   public function addMBarang(){
-  //       $data = [
-  //           'id' => $this->input->post('id',true),
-  //           'NamaBarang' => $this->input->post('NamaBarang',true),
-  //           'Harga' => $this->input->post('Harga',true),
-  //           'JenisBarang' => $this->input->post('JenisBarang',true),
-  //           'Merk' => $this->input->post('Merk',true),
-  //           'stok_barang' => $this->input->post('stok_barang',true),
-  //       ];
-  //       $this->db->insert('barang_db',$data);
-  //   }
-
-  //    public function deleteBarang($id) {
-        // $this->db->where('id',$id);
-        // return $this->db->delete('barang_db');
-  //   }
-
-  //   public function editMBarang($id){
-        // $data = [
-  //           'id' => $this->input->post('id',true),
-  //           'NamaBarang' => $this->input->post('NamaBarang',true),
-  //           'Harga' => $this->input->post('Harga',true),
-  //           'JenisBarang' => $this->input->post('JenisBarang',true),
-  //           'Merk' => $this->input->post('Merk',true),
-  //           'stok_barang' => $this->input->post('stok_barang',true),
-
-  //       ];
-        // $this->db->where('id',$id);
-        // return $this->db->update('barang_db',$data);
-  //   }
-
     
 }

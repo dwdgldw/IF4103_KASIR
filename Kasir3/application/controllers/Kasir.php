@@ -29,28 +29,64 @@ Class Kasir extends CI_Controller{
 	 	$this->load->view('page_Barang');
 	 }
 
-	public function ListBarang(){
+	public function StokBarang(){
         $data['barang_db'] = $this->M_kasir->get_all_Barang();
         if($this->input->post('keyword')){
             $data['barang_db'] = $this->M_kasir->cariBarang();
         }
         $this->load->view('page_header');
-		$this->load->view('Page_Barang_List',$data);
-	}
-
-	public function Stok(){
-		$data['barang_db'] = $this->M_kasir->get_all_Barang();
-		if($this->input->post('keyword')){
-            $data['barang_db'] = $this->M_kasir->cariBarang();
-        }
-		$this->load->view('page_header');
-		$this->load->view('Page_Cek_Stok',$data);
+		$this->load->view('page_Cek_Stok',$data);
 	}
 
 	public function About(){
 		$this->load->view('page_header');
 		$this->load->view('Page_About');
 	}
+	public function addBarang(){
+
+        $this->form_validation->set_rules('id','id', 'required');
+        $this->form_validation->set_rules('NamaBarang', 'NamaBarang', 'required');
+        $this->form_validation->set_rules('Harga', 'Harga', 'required');
+        $this->form_validation->set_rules('JenisBarang', 'JenisBarang', 'required');
+        $this->form_validation->set_rules('Merk', 'Merk', 'required');
+        $this->form_validation->set_rules('stok_barang', 'stok_barang', 'required');
+		
+		if ($this->form_validation->run()==FALSE){
+            $this->load->view('page_Barang');
+        }else{
+          	$this->M_kasir->addMBarang();
+            $this->session->set_flashdata('success','ditambahkan');
+            redirect('Kasir/ListBarang');
+        }
+	 }
+	public function deleteBarang($id){
+        $this->M_kasir->deleteBarang($id);
+        $this->session->set_flashdata('hapus','dihapus');
+        redirect('Kasir/ListBarang');
+    }
+ 
+    public function editBarang($id){
+
+    	$this->load->view('page_Header');
+        $data['barang']=$this->M_kasir->getBarangById($id);
+
+        $this->form_validation->set_rules('id','id', 'required');
+        $this->form_validation->set_rules('NamaBarang', 'NamaBarang', 'required');
+        $this->form_validation->set_rules('Harga', 'Harga', 'required');
+        $this->form_validation->set_rules('JenisBarang', 'JenisBarang', 'required');
+        $this->form_validation->set_rules('Merk', 'Merk', 'required');
+        $this->form_validation->set_rules('stok_barang', 'stok_barang', 'required');
+
+        if ($this->form_validation->run()==FALSE){
+            $this->load->view('Page_Barang_Edit',$data);
+        }else{
+            $this->M_kasir->editMBarang($id);
+            $this->session->set_flashdata('update','diubah');
+            redirect('Kasir/ListBarang');
+        }
+        
+    }
+   
     public function cariBarang(){
 		$keyword = $this->input->post('keyword');
 		$data['barang_db']=$this->M_kasir->cariBarang($keyword);
@@ -101,50 +137,5 @@ Class Kasir extends CI_Controller{
     	$this->load->view('page_Cetak_Struck',$data);
 
     }
-    	// public function addBarang(){
-
- //        $this->form_validation->set_rules('id','id', 'required');
- //        $this->form_validation->set_rules('NamaBarang', 'NamaBarang', 'required');
- //        $this->form_validation->set_rules('Harga', 'Harga', 'required');
- //        $this->form_validation->set_rules('JenisBarang', 'JenisBarang', 'required');
- //        $this->form_validation->set_rules('Merk', 'Merk', 'required');
- //        $this->form_validation->set_rules('stok_barang', 'stok_barang', 'required');
-		
-	// 	if ($this->form_validation->run()==FALSE){
- //            $this->load->view('page_Barang');
- //        }else{
- //          	$this->M_kasir->addMBarang();
- //            $this->session->set_flashdata('success','ditambahkan');
- //            redirect('Kasir/ListBarang');
- //        }
-	//  }
-	// public function deleteBarang($id){
- //        $this->M_kasir->deleteBarang($id);
- //        $this->session->set_flashdata('hapus','dihapus');
- //        redirect('Kasir/ListBarang');
- //    }
- 
- //    public function editBarang($id){
-
- //    	$this->load->view('page_Header');
- //        $data['barang']=$this->M_kasir->getBarangById($id);
-
- //        $this->form_validation->set_rules('id','id', 'required');
- //        $this->form_validation->set_rules('NamaBarang', 'NamaBarang', 'required');
- //        $this->form_validation->set_rules('Harga', 'Harga', 'required');
- //        $this->form_validation->set_rules('JenisBarang', 'JenisBarang', 'required');
- //        $this->form_validation->set_rules('Merk', 'Merk', 'required');
- //        $this->form_validation->set_rules('stok_barang', 'stok_barang', 'required');
-
- //        if ($this->form_validation->run()==FALSE){
- //            $this->load->view('Page_Barang_Edit',$data);
- //        }else{
- //            $this->M_kasir->editMBarang($id);
- //            $this->session->set_flashdata('update','diubah');
- //            redirect('Kasir/ListBarang');
- //        }
-        
- //    }
-   
 
 }

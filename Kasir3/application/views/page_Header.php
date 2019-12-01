@@ -79,18 +79,8 @@
               </ul>
             </div>
           </li>
-<!--         <li><a href="#collapse2"><i class="fa fa-cubes"></i> Barang</a>
-            <div>
-                <ul>
-                <li><a href="<?= base_url(); ?>Kasir/TambahBarang"><i class="fa fa-plus"></i>
-                  Tambah Barang</a></li>
-                <li><a href="<?= base_url(); ?>Kasir/ListBarang"><i class="fa fa-list-ul"></i>
-                  List Data Barang</a></li>
-              </ul>
-              </div>  
-        </li> -->
         <li class="">
-          <a href="<?= base_url(); ?>Kasir/ListBarang"><i class="fa fa-check"></i> Cek Stok</a>
+          <a href="<?= base_url(); ?>Kasir/StokBarang"><i class="fa fa-check"></i> Cek Stok</a>
         </li>
         <li class="">
           <a href="<?= base_url(); ?>Akun/LoginAdmin"><i class="fa fa-book"></i> Laporan</a>
