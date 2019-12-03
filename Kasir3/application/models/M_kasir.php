@@ -24,6 +24,10 @@ Class M_kasir extends CI_Model{
 		$this->db->where('id',$id);
 		return $this->db->delete('barang_db');
     }
+    //   public function deleteBarang($id) {
+    //     $this->db->where('id',$id);
+    //     return $this->db->delete('barang_db');
+    // }
 
     public function editMBarang($id){
 		$data = [
@@ -71,6 +75,11 @@ Class M_kasir extends CI_Model{
     public function getLaporan(){
         $data = $this->db->query("SELECT * FROM `penjualan_db` join barang_db using(id)");
         return $data->result_array();
+    }
+     
+    public function deletePenjualan($id) {
+        $this->db->where('id_penjualan',$id);
+        return $this->db->delete('penjualan_db');
     }
     
 }

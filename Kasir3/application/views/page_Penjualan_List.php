@@ -24,6 +24,7 @@
                               <th class="text-center" >Harga</th>
                               <th class="text-center" >Jenis Barang</th>
                               <th class="text-center" >Merk</th>
+                             <th class="text-center" >Option</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -35,7 +36,11 @@
                               <td class="text-center"><?= $barang['Harga']; ?></td>
                               <td class="text-center"><?= $barang['JenisBarang']; ?></td>
                               <td class="text-center"><?= $barang['Merk']; ?></td>
+                              <td class="text-center">
+                                  <a href="<?= base_url(); ?>Kasir/deletePenjualan/<?= $barang['id_penjualan'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');" ?>Delete</a>
+                              </td>
                           </tr>
+
                           <?php endforeach ?>
                       </tbody>
               </table>

@@ -104,6 +104,12 @@ Class Kasir extends CI_Controller{
 		$this->load->view('page_Penjualan', $data);
 	}
 
+    // public function deleteBarang($id){
+    //     $this->M_kasir->deleteBarang($id);
+    //     $this->session->set_flashdata('hapus','dihapus');
+    //     redirect('Kasir/ListBarang');
+    // }
+
 	public function insertPenjualan(){
 
 		$this->form_validation->set_rules('id', 'id', 'required');
@@ -136,6 +142,10 @@ Class Kasir extends CI_Controller{
     	$data['tot'] = $this->M_kasir->getPenjualan();
     	$this->load->view('page_Cetak_Struck',$data);
 
+    }
+    public function deletePenjualan($id){
+        $this->M_kasir->deletePenjualan($id); 
+        redirect('Kasir/ListPenjualan');
     }
 
 }
