@@ -24,10 +24,6 @@ Class M_kasir extends CI_Model{
 		$this->db->where('id',$id);
 		return $this->db->delete('barang_db');
     }
-    //   public function deleteBarang($id) {
-    //     $this->db->where('id',$id);
-    //     return $this->db->delete('barang_db');
-    // }
 
     public function editMBarang($id){
 		$data = [

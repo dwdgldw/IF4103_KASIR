@@ -82,7 +82,7 @@ Class Kasir extends CI_Controller{
         }else{
             $this->M_kasir->editMBarang($id);
             $this->session->set_flashdata('update','diubah');
-            redirect('Kasir/ListBarang');
+            redirect('Kasir/StokBarang');
         }
         
     }
@@ -103,12 +103,6 @@ Class Kasir extends CI_Controller{
 		$this->load->view('page_Header', $data);
 		$this->load->view('page_Penjualan', $data);
 	}
-
-    // public function deleteBarang($id){
-    //     $this->M_kasir->deleteBarang($id);
-    //     $this->session->set_flashdata('hapus','dihapus');
-    //     redirect('Kasir/ListBarang');
-    // }
 
 	public function insertPenjualan(){
 
